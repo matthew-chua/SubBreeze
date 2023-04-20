@@ -8,8 +8,42 @@
 import SwiftUI
 
 struct ProfileView: View {
+    let data = [1,2,3,4,5,6,7]
+    
+    let columns = [
+           GridItem(.flexible()),
+           GridItem(.flexible()),
+       ]
     var body: some View {
-        Text("THIS IS THE PROFILE VIEW")
+        VStack{
+            HStack{
+                Text("Sub-Breeze")
+                    .font(.title)
+                Spacer()
+                Image(systemName: "heart.circle").resizable().frame(width: 40.0, height: 40.0)
+                
+            }
+            
+            Circle().padding(.top).frame(width: 180)
+            Text("matthew")
+                .font(.title)
+            
+            Text("My Listings:")
+                .fontWeight(.bold)
+                .padding(.top)
+                .frame(width: 300, alignment: .leading)
+            
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(data, id: \.self) { item in
+                        ListingCardView()
+                    }
+                }
+                .padding(.horizontal)
+            }
+            Spacer()
+        }
+        .padding(/*@START_MENU_TOKEN@*/.all, 20.0/*@END_MENU_TOKEN@*/)
     }
 }
 
