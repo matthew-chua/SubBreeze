@@ -23,16 +23,34 @@ struct HomeView: View {
                 Image(systemName: "heart.circle").resizable().frame(width: 40.0, height: 40.0)
                 
             }
-            
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(data, id: \.self) { item in
-                        ListingCardView()
+            NavigationView {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(data, id: \.self) { item in
+                            ListingCardView()
+                            NavigationLink {
+                                ListingView()
+                            } label: {
+                                Text("View Listing")
+                            }
+                        }
                     }
                 }
-                .padding(.horizontal)
             }
-            Spacer()
+            
+//            ScrollView {
+//                LazyVGrid(columns: columns, spacing: 20) {
+//                    ForEach(data, id: \.self) { item in
+//
+//                        ListingCardView()
+//                        Button("view listing") {
+//
+//                        }
+//                    }
+//                }
+//                .padding(.horizontal)
+//            }
+//            Spacer()
         }
         .padding(/*@START_MENU_TOKEN@*/.all, 20.0/*@END_MENU_TOKEN@*/)
     }
