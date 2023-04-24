@@ -11,7 +11,7 @@ struct ListingCardView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(.pink)
+                .fill(Color(hue: 0.907, saturation: 0.493, brightness: 1.0))
                 .frame(width: 150, height: 200)
             VStack{
                 Image("house").resizable().frame(width: 100, height: 60)
@@ -30,7 +30,7 @@ struct ListingCardView: View {
                 .padding(.top)
             }
             
-        }
+        }.foregroundColor(.black)
     }
 }
 

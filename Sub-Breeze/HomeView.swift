@@ -27,11 +27,11 @@ struct HomeView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(data, id: \.self) { item in
-                            ListingCardView()
+                            
                             NavigationLink {
                                 ListingView()
                             } label: {
-                                Text("View Listing")
+                                ListingCardView()
                             }
                         }
                     }
